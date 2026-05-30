@@ -19,7 +19,9 @@ public class Product {
 
     @Column(columnDefinition = "TEXT")
     private String description;
+
     private Double price;
+
     private String imgUrl;
 
     public Product(){
@@ -27,7 +29,7 @@ public class Product {
 
     @ManyToMany
     @JoinTable(name = "tb_product_category",
-            joinColumns = @JoinColumn(name = "id_product"),
+            joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
