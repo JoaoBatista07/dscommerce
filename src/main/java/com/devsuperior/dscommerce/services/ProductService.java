@@ -34,16 +34,26 @@ public class ProductService {
 
     @Transactional
     public ProductDTO insertProduct(ProductDTO dto){
-        // copiando os dados do DTO para Product
         Product entity = new Product();
+        copyDtoToEntity(dto,entity); // copiando os dados do DTO para Product
+        entity = productRepository.save(entity); //para criar no banco, utilizamos o Save do JPA Repository
+        return new ProductDTO(entity); //retornamos um DTO com o objeto inserido.
+    }
+
+    @Transactional
+    public ProductDTO updateProduct(Long id, ProductDTO dto){
+        Product entity = productRepository.getReferenceById(id);
+        copyDtoToEntity(dto, entity);  // copiando os dados do DTO para Product
+        entity = productRepository.save(entity);
+        return new ProductDTO(entity);
+    }
+
+    private void copyDtoToEntity(ProductDTO dto, Product entity) {
+
         entity.setName(dto.getName());
         entity.setDescription(dto.getDescription());
         entity.setPrice(dto.getPrice());
         entity.setImgUrl(dto.getImgUrl());
-        //para criar no banco, utilizamos o Save do JPA Repository
-        entity = productRepository.save(entity);
-        //retornamos um DTO com o objeto inserido.
-        return new ProductDTO(entity);
     }
 
 }
