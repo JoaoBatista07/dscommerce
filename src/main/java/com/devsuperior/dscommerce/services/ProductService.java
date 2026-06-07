@@ -31,4 +31,19 @@ public class ProductService {
         Page<Product> result = productRepository.findAll(pageable);
         return result.map(x -> new ProductDTO(x));
     }
+
+    @Transactional
+    public ProductDTO insertProduct(ProductDTO dto){
+        // copiando os dados do DTO para Product
+        Product entity = new Product();
+        entity.setName(dto.getName());
+        entity.setDescription(dto.getDescription());
+        entity.setPrice(dto.getPrice());
+        entity.setImgUrl(dto.getImgUrl());
+        //para criar no banco, utilizamos o Save do JPA Repository
+        entity = productRepository.save(entity);
+        //retornamos um DTO com o objeto inserido.
+        return new ProductDTO(entity);
+    }
+
 }
