@@ -4,6 +4,8 @@ import java.time.Instant;
 
 public class CustomError {
 
+    /*Classe para representar o body de resposta de erros*/
+
     private Instant timestamp;
     private Integer status;
     private String error;
