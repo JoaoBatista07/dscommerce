@@ -33,8 +33,8 @@ public class ProductService {
     /*Este metodo retorna uma lista de produto paginada
     * usando o metodo findAll do JPA Repository*/
     @Transactional(readOnly = true)
-    public Page<ProductDTO> findAll(Pageable pageable){
-        Page<Product> result = productRepository.findAll(pageable);
+    public Page<ProductDTO> findAll(String name, Pageable pageable){
+        Page<Product> result = productRepository.searchByName(name, pageable);
         return result.map(x -> new ProductDTO(x));
     }
 

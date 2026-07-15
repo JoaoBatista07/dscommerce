@@ -30,8 +30,8 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<ProductDTO>> findAll(Pageable pageable){ //Pageable é uma funcionalidade do Spring que evita lentidão ou
-             Page<ProductDTO> dto = productService.findAll(pageable); // estouro de memória, permitindo retornar um tamanho especifico
+    public ResponseEntity<Page<ProductDTO>> findAll(@RequestParam(name = "name", defaultValue = "") String name, Pageable pageable){ //Pageable é uma funcionalidade do Spring que evita lentidão ou
+             Page<ProductDTO> dto = productService.findAll(name,pageable); // estouro de memória, permitindo retornar um tamanho especifico
                                                             // de objetos por páginas que é definido pelos argumentos da API Web
         return ResponseEntity.ok(dto);
     }
