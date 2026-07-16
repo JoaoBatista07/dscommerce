@@ -1,6 +1,7 @@
 package com.devsuperior.dscommerce.controllers;
 
 import com.devsuperior.dscommerce.dto.ProductDTO;
+import com.devsuperior.dscommerce.dto.ProductMinDTO;
 import com.devsuperior.dscommerce.entities.Product;
 import com.devsuperior.dscommerce.repositories.ProductRepository;
 import com.devsuperior.dscommerce.services.ProductService;
@@ -31,8 +32,8 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<ProductDTO>> findAll(@RequestParam(name = "name", defaultValue = "") String name, Pageable pageable){ //Pageable é uma funcionalidade do Spring que evita lentidão ou
-             Page<ProductDTO> dto = productService.findAll(name,pageable); // estouro de memória, permitindo retornar um tamanho especifico
+    public ResponseEntity<Page<ProductMinDTO>> findAll(@RequestParam(name = "name", defaultValue = "") String name, Pageable pageable){ //Pageable é uma funcionalidade do Spring que evita lentidão ou
+             Page<ProductMinDTO> dto = productService.findAll(name,pageable); // estouro de memória, permitindo retornar um tamanho especifico
                                                             // de objetos por páginas que é definido pelos argumentos da API Web
         return ResponseEntity.ok(dto);
     }
