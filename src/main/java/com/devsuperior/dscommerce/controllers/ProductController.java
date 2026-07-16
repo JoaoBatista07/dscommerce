@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -36,6 +37,7 @@ public class ProductController {
         return ResponseEntity.ok(dto);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @PostMapping
     public ResponseEntity<ProductDTO> insertProduct(@Valid @RequestBody ProductDTO dto){ //O @RequestBody permite instanciar um novo dto com
         dto = productService.insertProduct(dto); //reaproveita o dto recebido no argumento e passa pro service salvar
@@ -45,12 +47,14 @@ public class ProductController {
         return ResponseEntity.created(uri).body(dto); //Retorna o status 201 com a URL do novo produto criado junto com o JSON
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @PutMapping(value = "/{id}")
     public ResponseEntity<ProductDTO> updateProduct(@PathVariable Long id, @Valid @RequestBody ProductDTO dto){
         dto = productService.updateProduct(id, dto);
         return ResponseEntity.ok(dto);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         productService.delete(id);
