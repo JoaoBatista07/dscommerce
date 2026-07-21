@@ -24,7 +24,6 @@ public class OrderItem {
     public OrderItem(Order order, Product product, Integer quantity, Double price) {
         id.setOrder(order);
         id.setProduct(product);
-        this.id = id;
         this.quantity = quantity;
         this.price = price;
     }
