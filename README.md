@@ -1,36 +1,39 @@
-E-commerce Backend API
+# Dscommerce 
 
-API REST desenvolvida para gerenciamento de um sistema de e-commerce, incluindo autenticação de usuários, catálogo de produtos e processamento de pedidos.
+# Sobre o projeto
 
-TECNOLOGIAS:
-  Java 17
-  Spring Boot
-  Spring Security (JWT / OAuth2)
-  JPA / Hibernate
-  PostgreSQL
+API REST desenvolvida para simular um sistema de e-commerce, com foco em aprendizado de conceitos fundamentais de desenvolvimento backend utilizando Java e Spring Boot.
 
-FUNCIONALIDADES:
+O projeto foi construído com o objetivo de explorar modelagem de domínio, relacionamentos entre entidades e implementação de funcionalidades essenciais de um sistema real.
 
-  Cadastro e autenticação de usuários
-  Controle de permissões (roles)
-  Listagem de produtos
-  Carrinho de compras
-  Criação de pedidos
-  Integração com banco de dados relacional
+# Tecnologias utilizadas
+## Back end
+- Java
+- Spring Boot
+- JPA / Hibernate
+- Maven
 
-AUTENTICAÇÃO:
+## Implantação em produção
+- Back end: Heroku
+- Banco de dados: Postgresql
 
-  A API utiliza autenticação baseada em JWT.
-  
-  Obter token:
-  
-  POST /auth/login
-  
-  Usar token:
-  Authorization: Bearer <token>
+# Como executar o projeto
 
-APRENDIZADOS:
-  Implementação de autenticação com JWT
-  Organização em camadas (Controller, Service, Repository)
-  Boas práticas com Spring Boot
-  Tratamento de exceções e segurança
+## Back end
+Pré-requisitos: Java 11
+
+```bash
+# clonar repositório
+git clone https://github.com/JoaoBatista07/dscommerce.git
+
+# entrar na pasta do projeto back end
+cd backend
+
+# executar o projeto
+./mvnw spring-boot:run
+
+# Autor
+
+João Vitor Bispo Batista
+
+(https://www.linkedin.com/in/jo%C3%A3o-vitor-batista-7508a4267/)
