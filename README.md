@@ -117,6 +117,7 @@ Os dados de exemplo, incluindo os usuários, ficam em `src/main/resources/import
 ## Autor
 
 **João Vitor Bispo Batista**
+[Portfólio]([https://github.com/JoaoBatista07](https://joaobatista07.github.io))
 [LinkedIn](https://www.linkedin.com/in/jo%C3%A3o-bispo-batista/) · [GitHub](https://github.com/JoaoBatista07)
 
 ## Créditos
